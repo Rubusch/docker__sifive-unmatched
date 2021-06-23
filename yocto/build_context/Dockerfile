@@ -56,6 +56,7 @@ RUN apt-get install -y  \
     screen \
     minicom \
     sudo \
+    curl \
     x11-apps
 
 
@@ -73,6 +74,16 @@ ENV LC_ALL en_US.UTF-8
 RUN useradd "$USER" -m --password "$USER"
 RUN usermod -a -G sudo "$USER"
 RUN sed -i '/%sudo/s/.*/%sudo   ALL=NOPASSWD: ALL/' /etc/sudoers
+
+
+################################################################################
+## get tools
+
+RUN mkdir -p /usr/local/bin
+RUN chown $USER:$USER -R /usr/local
+
+USER $USER
+RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
 
 
 ################################################################################
