@@ -19,7 +19,11 @@ services:
           - USER
 
         volumes:
-          - ./output:/home/$USER/poky-dunfell/build ## folder does not need to be around,
+          - ./poky-dunfell:/home/$USER/poky-dunfell  ## folder does not need to be around
 #          - type: bind
 #            source: ./output                        ## folder must be around
 #            target: /home/$USER/poky/build
+          - type: bind
+            source: ./build_configs      ## folder must be around
+            target: /home/$USER/configs
+
