@@ -11,8 +11,11 @@ export BUILD_DIR="${YOCTO_DIR}/build"
 
 
 ## this may take time
-for item in ${BUILD_DIR} ${YOCTO_DIR}; do
-    if [ ! "${MY_USER}" == "$( stat -c %U ${item} )" ]; then
+for item in ${YOCTO_DIR} ${BUILD_DIR}; do
+    if [ ! -e ${item} ]; then
+        mkdir -p ${item}
+
+    elif [ ! "${MY_USER}" == "$( stat -c %U ${item} )" ]; then
         ## may take some time
         sudo chown ${MY_USER}:${MY_USER} -R ${item}
     fi
