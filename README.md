@@ -10,6 +10,9 @@ https://www.sifive.com/boards/hifive-unmatched
 dynamic, growing, community guide  
 https://github.com/carlosedp/riscv-bringup/tree/master/unmatched
 
+sifive yocto layer  
+https://github.com/sifive/meta-sifive
+
 
 ## Yocto
 
