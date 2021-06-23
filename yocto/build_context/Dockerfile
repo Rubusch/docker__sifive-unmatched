@@ -84,6 +84,7 @@ RUN chown $USER:$USER -R /usr/local
 
 USER $USER
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
+RUN chmod a+x /usr/local/bin/repo
 
 
 ################################################################################
