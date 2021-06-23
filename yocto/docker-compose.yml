@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+    sifive-linux:
+        container_name: sifive-linux
+        image: rubuschl/sifive-linux
+        build:
+            context: build_context
+            dockerfile: Dockerfile
+            args:
+                USER: $USER
+
+        user: $USER
+        stdin_open: true          ## docker run -i
+        tty: true                 ## docker run -t
+        #privileged: true
+
+        environment:
+          - USER
+
+        volumes:
+          - ./output:/home/$USER/poky-dunfell/build ## folder does not need to be around,
+#          - type: bind
+#            source: ./output                        ## folder must be around
+#            target: /home/$USER/poky/build
