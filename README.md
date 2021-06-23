@@ -14,6 +14,18 @@ sifive yocto layer
 https://github.com/sifive/meta-sifive
 
 
+## Tools Needed
+
+```
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.28.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+$ sudo chmod a+x /usr/local/bin/docker-compose
+```
+
+NB: Where 1.28.6 is the latest version (currently not supported by devian/ubuntu package management)  
+
+
+
+
 ## Yocto
 
 Login user: 'root'  
