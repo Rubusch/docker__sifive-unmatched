@@ -2,6 +2,15 @@
 
 # Docker for Sifive Unmatched BSP
 
+## References
+
+official documentation, links to the reference manuals and datasheets of U740 and CO  
+https://www.sifive.com/boards/hifive-unmatched
+
+dynamic, growing, community guide  
+https://github.com/carlosedp/riscv-bringup/tree/master/unmatched
+
+
 ## Yocto
 
 Login user: 'root'  
