@@ -46,6 +46,21 @@ $ docker-compose -f ./docker-compose.yml run --rm sifive-linux /bin/bash
 $ build.sh
 ```
 
+### Development
+
+```
+$ cd ./yocto
+
+$ docker-compose -f ./docker-compose.yml run --rm sifive-linux /bin/bash
+    Creating yocto_sifive-linux_run ... done
+    To run a command as administrator (user "root"), use "sudo <command>".
+    See "man sudo_root" for details.
+
+$ build.sh
+    ...
+```
+
+
 ### SD Card
 
 TODO  
