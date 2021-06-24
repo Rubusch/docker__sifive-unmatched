@@ -42,7 +42,7 @@ source ./openembedded-core/oe-init-build-env
 ## NB: check out meta-sifi and its readme for different images, settings, toolchain, etc.
 export PARALLEL_MAKE="-j 4"
 export BB_NUMBER_THREADS=4
-export MACHINE="freedom-u740"
+export MACHINE="unmatched"
 
 ## build
 bitbake demo-coreip-cli || exit 1
