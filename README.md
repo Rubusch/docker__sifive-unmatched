@@ -2,6 +2,9 @@
 
 # Docker for Sifive Unmatched BSP
 
+The container shall provide a host system which serves to execute a specific build environment. The build environment itself then shall be mounted in, and kept plain outside the conainer image  
+
+
 ## References
 
 official documentation, links to the reference manuals and datasheets of U740 and CO  
