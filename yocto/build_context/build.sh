@@ -10,12 +10,13 @@ export YOCTO_DIR="${MY_HOME}/poky-${YOCTO_BRANCH}"
 export BUILD_DIR="${YOCTO_DIR}/build"
 
 
-## this may take time
-for item in ${YOCTO_DIR} ${BUILD_DIR}; do
-    if [ ! -e ${item} ]; then
-        mkdir -p ${item}
-
-    elif [ ! "${MY_USER}" == "$( stat -c %U ${item} )" ]; then
+## permissions
+mkdir -p "${YOCTO_DIR}"
+mkdir -p "${BUILD_DIR}"
+touch "${MY_HOME}/.gitconfig"
+touch "${MY_HOME}/.ssh"
+for item in "${YOCTO_DIR}" "${BUILD_DIR}" "${MY_HOME}/.gitconfig" "${MY_HOME}/.ssh"; do
+    if [ ! "${MY_USER}" == "$( stat -c %U ${item} )" ]; then
         ## may take some time
         sudo chown ${MY_USER}:${MY_USER} -R ${item}
     fi

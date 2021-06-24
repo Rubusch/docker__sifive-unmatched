@@ -109,7 +109,7 @@ RUN rm -f /home/$USER/.vimrc && ln -s /home/$USER/configs/.vimrc /home/$USER/
 RUN rm -f /home/$USER/.emacs && ln -s /home/$USER/configs/.emacs /home/$USER/
 
 ## gitconfig (contains secrets)
-RUN rm -f /home/$USER/.gitconfig && ln -s /home/$USER/configs/.gitconfig /home/$USER/
+#RUN rm -f /home/$USER/.gitconfig && ln -s /home/$USER/configs/.gitconfig /home/$USER/
 
 
 #WORKDIR /home/$USER
