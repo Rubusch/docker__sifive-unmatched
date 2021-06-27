@@ -6,7 +6,7 @@
 export MY_USER="$(whoami)"
 export YOCTO_BRANCH="dunfell"
 export MY_HOME="/home/${MY_USER}"
-export YOCTO_DIR="${MY_HOME}/poky-${YOCTO_BRANCH}"
+export YOCTO_DIR="${MY_HOME}/poky"
 export BUILD_DIR="${YOCTO_DIR}/build"
 
 

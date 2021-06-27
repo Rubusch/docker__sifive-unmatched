@@ -95,6 +95,7 @@ USER $USER
 
 ## prepare paths
 RUN mkdir -p /home/$USER/configs
+RUN mkdir -p /home/$USER/poky
 
 ## reset permissions
 RUN chown $USER:$USER -R /home/$USER/
@@ -107,13 +108,6 @@ RUN rm -f /home/$USER/.vimrc && ln -s /home/$USER/configs/.vimrc /home/$USER/
 
 ## emacs config
 RUN rm -f /home/$USER/.emacs && ln -s /home/$USER/configs/.emacs /home/$USER/
-
-## gitconfig (contains secrets)
-#RUN rm -f /home/$USER/.gitconfig && ln -s /home/$USER/configs/.gitconfig /home/$USER/
-
-
-#WORKDIR /home/$USER
-#RUN git clone -b $BRANCH_YOCTO git://git.yoctoproject.org/poky poky
 
 
 ################################################################################

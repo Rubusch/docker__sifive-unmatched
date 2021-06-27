@@ -21,7 +21,7 @@ services:
         volumes:
           - ~/.gitconfig:/home/$USER/.gitconfig
           - ~/.ssh:/home/$USER/.ssh
-          - ./poky-dunfell:/home/$USER/poky-dunfell  ## folder does not need to be around
+          - ./poky:/home/$USER/poky  ## folder does not need to be around
 #          - type: bind
 #            source: ./output                        ## folder must be around
 #            target: /home/$USER/poky/build

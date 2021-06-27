@@ -4,6 +4,4 @@
 *.orig
 
 ## ignore output folder
-poky-*
-dl
-build
+poky
