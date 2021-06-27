@@ -6,6 +6,7 @@ jobs:
           ## recently circleci:git complained about this (...)
           - run: git config --global user.email "l.rubusch@gmail.com"
           - run: git config --global user.name "Lothar Rubusch"
+          - run: git config --global color.ui false
 
           ## install more recent version of docker-compose                                                  
           - run: sudo curl -L "https://github.com/docker/compose/releases/download/1.28.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
