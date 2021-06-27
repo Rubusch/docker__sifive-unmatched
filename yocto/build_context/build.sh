@@ -2,13 +2,13 @@
 #
 # references:
 # https://github.com/sifive/meta-sifive
-
+set -x          
 MY_USER="$(whoami)"
 YOCTO_BRANCH="dunfell"
 MY_HOME="/home/${MY_USER}"
 YOCTO_DIR="${MY_HOME}/poky"
 BUILD_DIR="${YOCTO_DIR}/build"
-BB_FLAGS=${1}
+BB_ARGS=${1}
 
 ## permissions
 for item in "${YOCTO_DIR}" "${BUILD_DIR}" "${MY_HOME}/.gitconfig" "${MY_HOME}/.ssh"; do
@@ -31,6 +31,7 @@ fi
 chmod a+x ./meta-sifive/setup.sh
 ./meta-sifive/setup.sh
 
+
 ## enter environment
 source ./openembedded-core/oe-init-build-env
 
@@ -41,7 +42,7 @@ export BB_NUMBER_THREADS=4
 export MACHINE="unmatched"
 
 ## build
-bitbake demo-coreip-cli ${BB_FLAGS} || exit 1
+bitbake demo-coreip-cli ${BB_ARGS} || exit 1
 
 echo "READY."
 echo
