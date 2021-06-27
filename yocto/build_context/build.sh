@@ -11,8 +11,6 @@ BUILD_DIR="${YOCTO_DIR}/build"
 BB_FLAGS="${1}"
 
 ## permissions
-mkdir -p "${YOCTO_DIR}"
-mkdir -p "${BUILD_DIR}"
 touch "${MY_HOME}/.gitconfig"
 touch "${MY_HOME}/.ssh"
 for item in "${YOCTO_DIR}" "${BUILD_DIR}" "${MY_HOME}/.gitconfig" "${MY_HOME}/.ssh"; do
