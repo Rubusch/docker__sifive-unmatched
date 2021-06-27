@@ -8,7 +8,6 @@ YOCTO_BRANCH="dunfell"
 MY_HOME="/home/${MY_USER}"
 YOCTO_DIR="${MY_HOME}/poky"
 BUILD_DIR="${YOCTO_DIR}/build"
-BB_ARGS=${1}
 
 ## permissions
 for item in "${YOCTO_DIR}" "${BUILD_DIR}" "${MY_HOME}/.gitconfig" "${MY_HOME}/.ssh"; do
@@ -42,7 +41,7 @@ export BB_NUMBER_THREADS=4
 export MACHINE="unmatched"
 
 ## build
-bitbake demo-coreip-cli ${BB_ARGS} || exit 1
+bitbake demo-coreip-cli $@ || exit 1
 
 echo "READY."
 echo
