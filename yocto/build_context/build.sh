@@ -12,6 +12,7 @@ BB_FLAGS="${1}"
 
 ## permissions
 for item in "${YOCTO_DIR}" "${BUILD_DIR}" "${MY_HOME}/.gitconfig" "${MY_HOME}/.ssh"; do
+    test -e "${item}" || continue
     if [ ! "${MY_USER}" == "$( stat -c %U ${item} )" ]; then
         ## may take some time
         sudo chown ${MY_USER}:${MY_USER} -R ${item}
