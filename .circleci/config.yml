@@ -14,5 +14,5 @@ jobs:
 
           ## build 
           - checkout
-          - run: cd ./yocto && docker-compose -f ./docker-compose.yml run --rm sifive-linux /usr/local/bin/build.sh "-c fetchall"
+          - run: cd ./yocto && docker-compose -f ./docker-compose.yml run --rm sifive-linux /usr/local/bin/build.sh --runall=fetch
 
