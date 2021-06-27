@@ -11,8 +11,6 @@ BUILD_DIR="${YOCTO_DIR}/build"
 BB_FLAGS="${1}"
 
 ## permissions
-touch "${MY_HOME}/.gitconfig"
-touch "${MY_HOME}/.ssh"
 for item in "${YOCTO_DIR}" "${BUILD_DIR}" "${MY_HOME}/.gitconfig" "${MY_HOME}/.ssh"; do
     if [ ! "${MY_USER}" == "$( stat -c %U ${item} )" ]; then
         ## may take some time
@@ -20,9 +18,8 @@ for item in "${YOCTO_DIR}" "${BUILD_DIR}" "${MY_HOME}/.gitconfig" "${MY_HOME}/.s
     fi
 done
 
-cd ${YOCTO_DIR}
-
 ## sources
+cd ${YOCTO_DIR}
 if [[ ! -d .repo ]]; then
     repo init -u git://github.com/sifive/meta-sifive -b 2021.05 -m tools/manifests/sifive.xml
     repo sync
@@ -32,7 +29,6 @@ fi
 ## final installation
 chmod a+x ./meta-sifive/setup.sh
 ./meta-sifive/setup.sh
-
 
 ## enter environment
 source ./openembedded-core/oe-init-build-env
