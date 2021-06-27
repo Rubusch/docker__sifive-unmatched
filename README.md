@@ -1,4 +1,6 @@
+[![CircleCI](https://circleci.com/gh/Rubusch/docker__sifive-unmatched.svg?style=shield)](https://circleci.com/gh/Rubusch/docker__sifive-unmatched)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
+
 
 # Docker for Sifive Unmatched BSP
 
