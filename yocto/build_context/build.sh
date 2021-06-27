@@ -3,12 +3,12 @@
 # references:
 # https://github.com/sifive/meta-sifive
 
-export MY_USER="$(whoami)"
-export YOCTO_BRANCH="dunfell"
-export MY_HOME="/home/${MY_USER}"
-export YOCTO_DIR="${MY_HOME}/poky"
-export BUILD_DIR="${YOCTO_DIR}/build"
-
+MY_USER="$(whoami)"
+YOCTO_BRANCH="dunfell"
+MY_HOME="/home/${MY_USER}"
+YOCTO_DIR="${MY_HOME}/poky"
+BUILD_DIR="${YOCTO_DIR}/build"
+BB_FLAGS="${1}"
 
 ## permissions
 mkdir -p "${YOCTO_DIR}"
@@ -24,7 +24,7 @@ done
 
 cd ${YOCTO_DIR}
 
-## sifive: fetch meta layers
+## sources
 if [[ ! -d .repo ]]; then
     repo init -u git://github.com/sifive/meta-sifive -b 2021.05 -m tools/manifests/sifive.xml
     repo sync
@@ -46,7 +46,7 @@ export BB_NUMBER_THREADS=4
 export MACHINE="unmatched"
 
 ## build
-bitbake demo-coreip-cli || exit 1
+bitbake ${BB_FLAGS} demo-coreip-cli || exit 1
 
 echo "READY."
 echo

@@ -89,7 +89,6 @@ RUN chmod a+x /usr/local/bin/repo
 
 ################################################################################
 ## get sources
-
 WORKDIR /home/$USER
 USER $USER
 
