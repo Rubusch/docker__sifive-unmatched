@@ -1,16 +1,16 @@
 version: '3.8'
 
 services:
-    sifive-linux:
-        container_name: sifive-linux
-        image: rubuschl/sifive-linux
+    sifive-unmatched:
+        container_name: sifive-unmatched
+        image: ${USER}/sifive-unmatched
         build:
             context: build_context
             dockerfile: Dockerfile
             args:
-                USER: $USER
+                USER: ${USER}
 
-        user: $USER
+        user: ${USER}
         stdin_open: true          ## docker run -i
         tty: true                 ## docker run -t
         #privileged: true
@@ -22,9 +22,6 @@ services:
           - ~/.gitconfig:/home/$USER/.gitconfig
           - ~/.ssh:/home/$USER/.ssh
           - ./poky:/home/$USER/poky  ## folder does not need to be around
-#          - type: bind
-#            source: ./output                        ## folder must be around
-#            target: /home/$USER/poky/build
           - type: bind
             source: ./build_configs      ## folder must be around
             target: /home/$USER/configs
