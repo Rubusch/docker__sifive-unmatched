@@ -46,7 +46,7 @@ $ docker-compose up
 ### Usage
 
 ```
-$ docker-compose -f ./docker-compose.yml run --rm sifive-linux /bin/bash
+$ docker-compose -f ./docker-compose.yml run --rm sifive-unmatched /bin/bash
 
 $ build.sh
 ```
@@ -56,8 +56,8 @@ $ build.sh
 ```
 $ cd ./yocto
 
-$ docker-compose -f ./docker-compose.yml run --rm sifive-linux /bin/bash
-    Creating yocto_sifive-linux_run ... done
+$ docker-compose -f ./docker-compose.yml run --rm sifive-unmatched /bin/bash
+    Creating yocto_sifive-unmatched_run ... done
     To run a command as administrator (user "root"), use "sudo <command>".
     See "man sudo_root" for details.
 
