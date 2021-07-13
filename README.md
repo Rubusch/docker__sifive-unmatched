@@ -52,9 +52,10 @@ $ docker-compose up
 ### Usage
 
 ```
+$ cd ./docker__yocto
 $ docker-compose -f ./docker-compose.yml run --rm sifive-unmatched /bin/bash
 
-$ build.sh
+docker$ build.sh
 ```
 
 ### Development
