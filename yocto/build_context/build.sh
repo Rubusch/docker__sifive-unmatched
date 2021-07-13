@@ -16,6 +16,14 @@ for item in "${YOCTO_DIR}" "${BUILD_DIR}" "${MY_HOME}/.gitconfig" "${MY_HOME}/.s
     fi
 done
 
+## ssh known_hosts
+touch ${SSH_KNOWN_HOSTS}
+for item in "github.com" "bitbucket.org"; do
+    if [ "" == "$( grep ${item} -r ${SSH_KNOWN_HOSTS} )" ]; then
+        ssh-keyscan "${item}" >> "${SSH_KNOWN_HOSTS}"
+    fi
+done
+
 ## sources
 cd "${YOCTO_DIR}"
 if [ ! -d .repo ]; then
