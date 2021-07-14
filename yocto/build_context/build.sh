@@ -12,6 +12,9 @@ YOCTO_DIR="${MY_HOME}/poky"
 BUILD_DIR="${YOCTO_DIR}/build"
 YOCTO_ARGS="${1}"
 
+##
+1=""
+
 ## permissions
 for item in "${YOCTO_DIR}" "${BUILD_DIR}" "${MY_HOME}/.gitconfig" "${MY_HOME}/.ssh"; do
     test -e "${item}" || continue
