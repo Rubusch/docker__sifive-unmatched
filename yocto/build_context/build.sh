@@ -52,7 +52,7 @@ export BB_NUMBER_THREADS=4
 export MACHINE="unmatched"
 
 ## build
-bitbake demo-coreip-cli || exit 1
+bitbake demo-coreip-cli $@ || exit 1
 
 echo "READY."
 echo
