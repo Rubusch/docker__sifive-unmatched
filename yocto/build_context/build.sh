@@ -10,7 +10,6 @@ SSH_KNOWN_HOSTS="${SSH_DIR}/known_hosts"
 REPO_BRANCH="2021.06"
 YOCTO_DIR="${MY_HOME}/poky"
 BUILD_DIR="${YOCTO_DIR}/build"
-YOCTO_ARGS="$*"
 
 ## permissions
 for item in "${YOCTO_DIR}" "${BUILD_DIR}" "${MY_HOME}/.gitconfig" "${MY_HOME}/.ssh"; do
@@ -53,7 +52,7 @@ export BB_NUMBER_THREADS=4
 export MACHINE="unmatched"
 
 ## build
-bitbake demo-coreip-cli "${YOCTO_ARGS}" || exit 1
+bitbake demo-coreip-cli --forall=fetch || exit 1
 
 echo "READY."
 echo
