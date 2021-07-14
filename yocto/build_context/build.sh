@@ -4,6 +4,9 @@
 # https://github.com/sifive/meta-sifive
 MY_USER="$(whoami)"
 MY_HOME="/home/${MY_USER}"
+SSH_DIR="${MY_HOME}/.ssh"
+SSH_KNOWN_HOSTS="${SSH_DIR}/known_hosts"
+REPO_BRANCH="2021.05"
 YOCTO_DIR="${MY_HOME}/poky"
 BUILD_DIR="${YOCTO_DIR}/build"
 
@@ -27,7 +30,7 @@ done
 ## sources
 cd "${YOCTO_DIR}"
 if [ ! -d .repo ]; then
-    repo init -u git://github.com/sifive/meta-sifive -b 2021.05 -m tools/manifests/sifive.xml
+    repo init -u git://github.com/sifive/meta-sifive -b i"${REPO_BRANCH}" -m tools/manifests/sifive.xml
     repo sync
     repo start work --all
 fi
