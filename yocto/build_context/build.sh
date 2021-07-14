@@ -2,6 +2,7 @@
 #
 # references:
 # https://github.com/sifive/meta-sifive
+
 MY_USER="$(whoami)"
 MY_HOME="/home/${MY_USER}"
 SSH_DIR="${MY_HOME}/.ssh"
@@ -28,19 +29,20 @@ for item in "github.com" "bitbucket.org"; do
 done
 
 ## sources
-cd "${YOCTO_DIR}"
-if [ ! -d .repo ]; then
+if [ ! -d "${YOCTO_DIR}/.repo" ]; then
+    cd "${YOCTO_DIR}"
     repo init -u git://github.com/sifive/meta-sifive -b "${REPO_BRANCH}" -m tools/manifests/sifive.xml
     repo sync
     repo start work --all
 fi
 
 ## final installation
+cd "${YOCTO_DIR}"
 chmod a+x ./meta-sifive/setup.sh
 ./meta-sifive/setup.sh
 
-
 ## enter environment
+cd "${YOCTO_DIR}"
 . ./openembedded-core/oe-init-build-env
 
 ## parallelize build
