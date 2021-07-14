@@ -10,7 +10,8 @@ SSH_KNOWN_HOSTS="${SSH_DIR}/known_hosts"
 REPO_BRANCH="2021.05"
 YOCTO_DIR="${MY_HOME}/poky"
 BUILD_DIR="${YOCTO_DIR}/build"
-YOCTO_ARGS="$@"
+YOCTO_ARGS="$*"
+unset "$@"
 
 ## permissions
 for item in "${YOCTO_DIR}" "${BUILD_DIR}" "${MY_HOME}/.gitconfig" "${MY_HOME}/.ssh"; do
@@ -22,9 +23,9 @@ for item in "${YOCTO_DIR}" "${BUILD_DIR}" "${MY_HOME}/.gitconfig" "${MY_HOME}/.s
 done
 
 ## ssh known_hosts
-touch ${SSH_KNOWN_HOSTS}
+touch "${SSH_KNOWN_HOSTS}"
 for item in "github.com" "bitbucket.org"; do
-    if [ "" == "$( grep ${item} -r ${SSH_KNOWN_HOSTS} )" ]; then
+    if [ "" = "$( grep "${item}" -r "${SSH_KNOWN_HOSTS}" )" ]; then
         ssh-keyscan "${item}" >> "${SSH_KNOWN_HOSTS}"
     fi
 done
