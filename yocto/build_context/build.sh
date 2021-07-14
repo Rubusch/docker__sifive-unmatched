@@ -1,19 +1,16 @@
 #!/bin/sh -ex
 #
 # references:
-# https://github.com/sifive/meta-sifive
+# https://github.com/sifive/freedom-u-sdk
 
 MY_USER="$(whoami)"
 MY_HOME="/home/${MY_USER}"
 SSH_DIR="${MY_HOME}/.ssh"
 SSH_KNOWN_HOSTS="${SSH_DIR}/known_hosts"
-REPO_BRANCH="2021.05"
+REPO_BRANCH="2021.06"
 YOCTO_DIR="${MY_HOME}/poky"
 BUILD_DIR="${YOCTO_DIR}/build"
-YOCTO_ARGS="${1}"
-
-##
-1=""
+YOCTO_ARGS="$*"
 
 ## permissions
 for item in "${YOCTO_DIR}" "${BUILD_DIR}" "${MY_HOME}/.gitconfig" "${MY_HOME}/.ssh"; do
@@ -47,7 +44,7 @@ chmod a+x ./meta-sifive/setup.sh
 
 ## enter environment
 cd "${YOCTO_DIR}/openembedded-core"
-. ./oe-init-build-env
+. ./oe-init-build-env build
 
 ## parallelize build
 ## NB: check out meta-sifi and its readme for different images, settings, toolchain, etc.
