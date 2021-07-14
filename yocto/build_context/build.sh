@@ -30,7 +30,7 @@ done
 ## sources
 cd "${YOCTO_DIR}"
 if [ ! -d .repo ]; then
-    repo init -u git://github.com/sifive/meta-sifive -b i"${REPO_BRANCH}" -m tools/manifests/sifive.xml
+    repo init -u git://github.com/sifive/meta-sifive -b "${REPO_BRANCH}" -m tools/manifests/sifive.xml
     repo sync
     repo start work --all
 fi
