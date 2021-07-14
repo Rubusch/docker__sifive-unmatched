@@ -42,8 +42,8 @@ chmod a+x ./meta-sifive/setup.sh
 ./meta-sifive/setup.sh
 
 ## enter environment
-cd "${YOCTO_DIR}"
-. ./openembedded-core/oe-init-build-env
+cd "${YOCTO_DIR}/openembedded-core"
+. ./oe-init-build-env
 
 ## parallelize build
 ## NB: check out meta-sifi and its readme for different images, settings, toolchain, etc.
