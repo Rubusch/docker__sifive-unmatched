@@ -9,6 +9,7 @@ SSH_DIR="${MY_HOME}/.ssh"
 SSH_KNOWN_HOSTS="${SSH_DIR}/known_hosts"
 REPO_BRANCH="2021.06"
 YOCTO_DIR="${MY_HOME}/poky"
+YOCTO_IMAGE="demo-coreip-cli"
 BUILD_DIR="${YOCTO_DIR}/build"
 
 ## permissions
@@ -47,12 +48,25 @@ cd "${YOCTO_DIR}/openembedded-core"
 
 ## parallelize build
 ## NB: check out meta-sifi and its readme for different images, settings, toolchain, etc.
-export PARALLEL_MAKE="-j 4"
-export BB_NUMBER_THREADS=4
-export MACHINE="unmatched"
+export PARALLEL_MAKE="-j $(nproc)"
+export BB_NUMBER_THREADS=$(nproc)
+export MACHINE=unmatched
 
 ## build
-bitbake demo-coreip-cli --runall=fetch || exit 1
+bitbake "${YOCTO_IMAGE}" --runall=fetch || exit 1
+
+## banner stuff
+echo
+echo "update manually (performed by this script):"
+echo "$ cd ${YOCTO_DIR}"
+echo "$ chmod a+x ./meta-sifive/setup.sh"
+echo "$ ./meta-sifive/setup.sh"
+echo
+
+echo "prepare a manual build, or run build.sh"
+echo "$ cd ${YOCTO_DIR}/openembedded-core && . ./oe-init-build-env build"
+echo "$ bitbake ${YOCTO_IMAGE}"
+echo
 
 echo "READY."
 echo
