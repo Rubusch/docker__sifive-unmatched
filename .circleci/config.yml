@@ -14,6 +14,6 @@ jobs:
 
           ## build
           - checkout
-          - run: cd ./yocto && docker-compose up
+          - run: cd ./yocto && docker-compose up || exit 1
           ## due to time limitation, run a fetch all instead of full build
 
