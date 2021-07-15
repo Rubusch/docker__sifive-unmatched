@@ -6,6 +6,8 @@
 MY_USER="$(whoami)"
 MY_HOME="/home/${MY_USER}"
 YOCTO_DIR="${MY_HOME}/poky"
+YOCTO_IMAGE="demo-coreip-xfce4"
+YOCTO_IMAGE="demo-coreip-cli"
 BUILD_DIR="${YOCTO_DIR}/build"
 
 ## verify fetchall
@@ -19,10 +21,9 @@ cd "${YOCTO_DIR}/openembedded-core"
 ## NB: check out meta-sifi and its readme for different images, settings, toolchain, etc.
 export PARALLEL_MAKE="-j 4"
 export BB_NUMBER_THREADS=4
-export MACHINE="unmatched"
 
 ## build
-bitbake demo-coreip-cli || exit 1
+MACHINE=unmatched bitbake "${YOCTO_IMAGE}" || exit 1
 
 echo "READY."
 echo

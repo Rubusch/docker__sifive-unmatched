@@ -50,10 +50,9 @@ cd "${YOCTO_DIR}/openembedded-core"
 ## NB: check out meta-sifi and its readme for different images, settings, toolchain, etc.
 export PARALLEL_MAKE="-j $(nproc)"
 export BB_NUMBER_THREADS=$(nproc)
-export MACHINE=unmatched
 
 ## build
-bitbake "${YOCTO_IMAGE}" --runall=fetch || exit 1
+MACHINE=unmatched bitbake "${YOCTO_IMAGE}" --runall=fetch || exit 1
 
 ## banner stuff
 echo
