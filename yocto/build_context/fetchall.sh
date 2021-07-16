@@ -44,7 +44,7 @@ chmod a+x ./meta-sifive/setup.sh
 
 ## enter environment
 cd "${YOCTO_DIR}/openembedded-core"
-. ./oe-init-build-env build
+. ./oe-init-build-env
 
 ## parallelize build
 ## NB: check out meta-sifi and its readme for different images, settings, toolchain, etc.
@@ -52,7 +52,7 @@ export PARALLEL_MAKE="-j $(nproc)"
 export BB_NUMBER_THREADS=$(nproc)
 
 ## build
-MACHINE=unmatched bitbake "${YOCTO_IMAGE}" --runall=fetch || exit 1
+#MACHINE=unmatched bitbake "${YOCTO_IMAGE}" --runall=fetch || exit 1
 
 ## banner stuff
 echo
