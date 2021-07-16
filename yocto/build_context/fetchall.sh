@@ -34,7 +34,7 @@ if [ ! -d "${YOCTO_DIR}/.repo" ]; then
     cd "${YOCTO_DIR}"
     repo init -u git://github.com/sifive/meta-sifive -b "${REPO_BRANCH}" -m tools/manifests/sifive.xml
     repo sync
-    #repo start work --all
+    repo start work --all
 fi
 
 ## final installation
@@ -43,8 +43,8 @@ chmod a+x ./meta-sifive/setup.sh
 ./meta-sifive/setup.sh
 
 ## enter environment
-cd "${YOCTO_DIR}/openembedded-core"
-. ./oe-init-build-env
+cd "${YOCTO_DIR}"
+. ./openembedded-core/oe-init-build-env
 
 ## parallelize build
 ## NB: check out meta-sifi and its readme for different images, settings, toolchain, etc.
