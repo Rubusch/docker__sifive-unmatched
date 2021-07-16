@@ -1,4 +1,4 @@
-#!/bin/sh -ex
+#!/bin/sh -e
 #
 # references:
 # https://github.com/sifive/freedom-u-sdk
@@ -49,27 +49,7 @@ cd "${YOCTO_DIR}"
 ## parallelize build
 ## NB: check out meta-sifi and its readme for different images, settings, toolchain, etc.
 export PARALLEL_MAKE="-j $(nproc)"
-export BB_NUMBER_THREADS=$(nproc)
-
-### DEBUGGING
-set -x
-## where am I?
-pwd
-echo
-
-## what do I see?
-ls -al
-echo
-
-env
-echo
-
-bitbake-layers show-layers
-echo
-
-bitbake -e "${YOCTO_IMAGE}"
-set +x
-### /DEBUGGING
+export BB_NUMBER_THREADS="$(nproc)"
 
 ## build
 MACHINE=unmatched bitbake "${YOCTO_IMAGE}" --runall=fetch || exit 1
