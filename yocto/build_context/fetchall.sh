@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh -ex
 #
 # references:
 # https://github.com/sifive/freedom-u-sdk
@@ -34,7 +34,7 @@ if [ ! -d "${YOCTO_DIR}/.repo" ]; then
     cd "${YOCTO_DIR}"
     repo init -u git://github.com/sifive/meta-sifive -b "${REPO_BRANCH}" -m tools/manifests/sifive.xml
     repo sync
-    repo start work --all
+    #repo start work --all
 fi
 
 ## final installation
