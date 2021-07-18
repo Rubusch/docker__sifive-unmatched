@@ -63,7 +63,8 @@ echo "$ ./meta-sifive/setup.sh"
 echo
 
 echo "prepare a manual build, or run build.sh"
-echo "$ cd ${YOCTO_DIR}/openembedded-core && . ./oe-init-build-env build"
+echo "$ cd ${YOCTO_DIR}"
+echo "$ . ./openembedded-core/oe-init-build-env build"
 echo "$ bitbake ${YOCTO_IMAGE}"
 echo
 

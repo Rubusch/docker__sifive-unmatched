@@ -64,11 +64,27 @@ docker$ build.sh
 $ cd ./yocto
 
 $ docker-compose -f ./docker-compose.yml run --rm sifive-unmatched /bin/bash
-
-docker$ build.sh
-    ...
 ```
 
+optionally/initially: update setup  
+```
+docker$ cd /home/user/poky
+docker$ chmod a+x ./meta-sifive/setup.sh
+docker$ ./meta-sifive/setup.sh
+```
+
+```
+docker$ cd /home/user/poky
+docker$ . ./openembedded-core/oe-init-build-env build"
+docker$ bitbake <YOCTO IMAGE>"
+    ...
+```
+(alternatively call ``build.sh``)  
+
+e.g. build the sdk toolchain for _demo-coreip-cli_  
+```
+docker$ bitbake demo-coreip-cli -c populate_sdk
+```
 
 ### SD Card
 
