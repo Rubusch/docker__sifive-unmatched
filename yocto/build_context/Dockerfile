@@ -111,6 +111,6 @@ RUN rm -f /home/$USER/.emacs && ln -s /home/$USER/configs/.emacs /home/$USER/
 
 ################################################################################
 ## command mode
-COPY build.sh /usr/local/bin/build.sh
-COPY fetchall.sh /usr/local/bin/fetchall.sh
-CMD ["/bin/bash", "/usr/local/bin/fetchall.sh"]
+COPY sifive-build.sh /usr/local/bin/sifive-build.sh
+COPY sifive-prepare.sh /usr/local/bin/sifive-prepare.sh
+CMD ["/bin/bash", "/usr/local/bin/sifive-prepare.sh"]
