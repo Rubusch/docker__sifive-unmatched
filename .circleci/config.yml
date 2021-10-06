@@ -14,6 +14,7 @@ jobs:
 
           ## build
           - checkout
-          - run: cd ./yocto && docker-compose up --exit-code-from sifive-unmatched
+          # TODO: fix issues with multistaged builds (sandbox + THIS)
+          #- run: cd ./yocto && docker-compose up --exit-code-from sifive-unmatched
           ## due to ci time limitation, run a fetch all instead of build all
 
