@@ -35,21 +35,32 @@ $ sudo chmod a+x /usr/local/bin/docker-compose
 NB: Where 1.28.6 is the latest version (currently not supported by devian/ubuntu package management)  
 
 
+## Preparations
 
+multistaged docker container: make sure you have the specified baseimage! first
+obtain the baseimage name and tag, e.g.
+```
+$ cat ./docker/build_context/Dockerfile
+    ...
+    ARG DOCKER_BASE="sandbox"
+    ARG DOCKER_BASE_TAG="20211006"
+    ...
 
-## Yocto
+$ cd /usr/src
+$ git clone https://github.com/Rubusch/docker__sandbox.git
+$ cd ./docker__sandbox
+$ git co 20211006
+    <build container as described in README.md there>
+```
 
-Login user: 'root'  
-TODO  
-
-### Build
+## Build
 
 ```
 $ cd docker
 $ docker-compose up
 ```
 
-### Usage
+## Usage
 
 ```
 $ cd ./docker__yocto
@@ -58,7 +69,7 @@ $ docker-compose -f ./docker-compose.yml run --rm sifive-unmatched /bin/bash
 docker$ build.sh
 ```
 
-### Development
+## Development
 
 ```
 $ cd docker
@@ -84,6 +95,13 @@ e.g. build the sdk toolchain for _demo-coreip-cli_
 ```
 docker$ bitbake demo-coreip-cli -c populate_sdk
 ```
+
+
+## Yocto
+
+Login user: 'root'  
+TODO  
+
 
 ### SD Card
 
