@@ -45,7 +45,7 @@ TODO
 ### Build
 
 ```
-$ cd yocto
+$ cd docker
 $ docker-compose up
 ```
 
@@ -61,8 +61,7 @@ docker$ build.sh
 ### Development
 
 ```
-$ cd ./yocto
-
+$ cd docker
 $ docker-compose -f ./docker-compose.yml run --rm sifive-unmatched /bin/bash
 ```
 
