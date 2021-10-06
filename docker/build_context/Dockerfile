@@ -8,7 +8,7 @@ ARG DOCKER_BASE_TAG="20211005"
 
 
 ################################################################################
-FROM ${USER}/${DOCKER_BASE}:${DOCKER_BASE_TAG} AS risc-v-unmatched
+FROM ${USER}/${DOCKER_BASE}:${DOCKER_BASE_TAG} AS sifive-unmatched
 MAINTAINER Lothar Rubusch <l.rubusch@gmail.com>
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -19,7 +19,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get install -y  \
     git-core \
     dosfstools \
-    minicom
+    minicom \
+    python
 
 
 ################################################################################
