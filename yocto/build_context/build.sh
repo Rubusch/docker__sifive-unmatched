@@ -10,8 +10,8 @@ YOCTO_IMAGE="demo-coreip-xfce4"
 YOCTO_IMAGE="demo-coreip-cli"
 BUILD_DIR="${YOCTO_DIR}/build"
 
-## verify fetchall
-fetchall.sh
+## prepare
+10_sifive-fetchall.sh
 
 ## prepare
 cd "${YOCTO_DIR}/openembedded-core"
