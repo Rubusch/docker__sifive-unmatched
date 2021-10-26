@@ -28,11 +28,12 @@ https://github.com/sifive/meta-sifive
 ## Tools Needed
 
 ```
-$ sudo curl -L "https://github.com/docker/compose/releases/download/1.28.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-$ sudo chmod a+x /usr/local/bin/docker-compose
+$ sudo apt-get install -y libffi-dev libssl-dev
+$ sudo apt-get install -y python3-dev
+$ sudo apt-get install -y python3 python3-pip
+$ pip3 install docker-compose
 ```
-
-NB: Where 1.28.6 is the latest version (currently not supported by devian/ubuntu package management)  
+Make sure, ``~/.local`` is within ``$PATH`` or re-link e.g. it to ``/usr/local``.
 
 
 ## Preparations
@@ -43,22 +44,31 @@ obtain the baseimage name and tag, e.g.
 $ cat ./docker/build_context/Dockerfile
     ...
     ARG DOCKER_BASE="sandbox"
-    ARG DOCKER_BASE_TAG="20211006"
+    ARG DOCKER_BASE_TAG="20211026"
     ...
 
 $ cd /usr/src
 $ git clone https://github.com/Rubusch/docker__sandbox.git
 $ cd ./docker__sandbox
-$ git co 20211006
+$ git co 20211026
     <build container as described in README.md there>
 ```
 
+
 ## Build
 
+Environment
+
 ```
-$ cd docker
+$ cd ./docker
+$ echo "UID=$(id -u)" > .env
+$ echo "GID=$(id -g)" >> .env
+```
+
+```
 $ docker-compose up
 ```
+
 
 ## Usage
 
@@ -68,6 +78,7 @@ $ docker-compose -f ./docker-compose.yml run --rm sifive-unmatched /bin/bash
 
 docker$ build.sh
 ```
+
 
 ## Development
 
