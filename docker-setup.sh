@@ -18,7 +18,7 @@ if [ -z "${CONTAINER}" ]; then
 fi
 
 ## docker container
-pushd ./docker
+cd ./docker
 echo "UID=$(id -u)" > .env
 echo "GID=$(id -g)" >> .env
 docker-compose up
