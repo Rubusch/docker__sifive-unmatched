@@ -17,8 +17,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 
 ################################################################################
-## set up apt fully functional
-
+## apt
 RUN apt-get install -y  \
     git-core \
     dosfstools \
@@ -27,8 +26,7 @@ RUN apt-get install -y  \
 
 
 ################################################################################
-## get tools
-
+## tools
 USER $USER
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
 RUN chmod a+x /usr/local/bin/repo
@@ -36,10 +34,8 @@ RUN chmod a+x /usr/local/bin/repo
 
 ################################################################################
 ## get sources
-WORKDIR /home/$USER
 USER $USER
-
-## prepare paths
+WORKDIR /home/$USER
 RUN mkdir -p /home/$USER/poky
 
 

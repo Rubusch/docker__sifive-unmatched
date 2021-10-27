@@ -39,7 +39,7 @@ Make sure, ``~/.local`` is within ``$PATH`` or re-link e.g. it to ``/usr/local``
 ## Build
 
 ```
-$ ./docker-setup.sh
+$ ./setup.sh
 ```
 
 

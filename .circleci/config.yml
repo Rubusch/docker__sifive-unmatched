@@ -14,5 +14,5 @@ jobs:
 
           ## build
           - checkout
-          - run: ./docker-setup.sh
+          - run: ./docker-setup.sh ci
 

@@ -1,5 +1,20 @@
 #!/bin/sh -e
 
+build()
+{
+	pushd "${1}" &> /dev/null
+	echo "UID=$(id -u)" > .env
+	echo "GID=$(id -g)" >> .env
+	if [ -n "${2}" ]; then
+	    docker-compose build
+	else
+	    docker-compose up
+	fi
+	popd &> /dev/null
+}
+
+DRYRUN="${1}"
+
 ## base image
 IMAGE="sandbox"
 
@@ -10,18 +25,11 @@ CONTAINER="$(docker images | grep "/${IMAGE}" | grep "${TAG}" | awk '{print $3}'
 
 if [ -z "${CONTAINER}" ]; then
 	git clone "https://github.com/Rubusch/docker__${IMAGE}.git" "${IMAGE}"
-	pushd ./"${IMAGE}" &> /dev/null
-	echo "UID=$(id -u)" > .env
-	echo "GID=$(id -g)" >> .env
-	docker-compose up
-	popd &> /dev/null
+	build "./${IMAGE}" "${DRYRUN}"
 fi
 
 ## docker container
-cd ./docker
-echo "UID=$(id -u)" > .env
-echo "GID=$(id -g)" >> .env
-docker-compose up
+build ./docker "${DRYRUN}"
 
 echo "READY."
 
