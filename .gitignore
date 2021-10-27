@@ -6,3 +6,9 @@
 
 ## ignore output folder
 poky
+
+## ignore docker base images
+sandbox
+
+## ignore docker environment
+.env
