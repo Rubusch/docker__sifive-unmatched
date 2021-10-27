@@ -33,47 +33,20 @@ $ sudo apt-get install -y python3-dev
 $ sudo apt-get install -y python3 python3-pip
 $ pip3 install docker-compose
 ```
-Make sure, ``~/.local`` is within ``$PATH`` or re-link e.g. it to ``/usr/local``.
-
-
-## Preparations
-
-multistaged docker container: make sure you have the specified baseimage! first
-obtain the baseimage name and tag, e.g.
-```
-$ cat ./docker/build_context/Dockerfile
-    ...
-    ARG DOCKER_BASE="sandbox"
-    ARG DOCKER_BASE_TAG="20211026"
-    ...
-
-$ cd /usr/src
-$ git clone https://github.com/Rubusch/docker__sandbox.git
-$ cd ./docker__sandbox
-$ git co 20211026
-    <build container as described in README.md there>
-```
+Make sure, ``~/.local`` is within ``$PATH`` or re-link e.g. it to ``/usr/local``.  
 
 
 ## Build
 
-Environment
-
 ```
-$ cd ./docker
-$ echo "UID=$(id -u)" > .env
-$ echo "GID=$(id -g)" >> .env
-```
-
-```
-$ docker-compose up
+$ ./docker-setup.sh
 ```
 
 
 ## Usage
 
 ```
-$ cd ./docker__yocto
+$ cd ./docker
 $ docker-compose -f ./docker-compose.yml run --rm sifive-unmatched /bin/bash
 
 docker$ build.sh
@@ -83,7 +56,7 @@ docker$ build.sh
 ## Development
 
 ```
-$ cd docker
+$ cd ./docker
 $ docker-compose -f ./docker-compose.yml run --rm sifive-unmatched /bin/bash
 ```
 
