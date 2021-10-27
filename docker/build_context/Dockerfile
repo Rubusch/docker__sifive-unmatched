@@ -6,8 +6,8 @@ ARG USER="${USER}"
 ARG UID="${UID}"
 ARG GID="${GID}"
 
-ENV DOCKER_BASE="sandbox"
-ENV DOCKER_BASE_TAG="20211027"
+ARG DOCKER_BASE="sandbox"
+ARG DOCKER_BASE_TAG="20211027"
 
 
 ################################################################################
