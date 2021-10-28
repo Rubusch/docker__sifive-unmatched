@@ -1,5 +1,4 @@
 #!/bin/sh -e
-
 build()
 {
 	pushd "${1}" &> /dev/null
@@ -17,8 +16,9 @@ DRYRUN="${1}"
 
 ## base image
 IMAGE="sandbox"
+test -z "${DOCKERDIR}" && DOCKERDIR="docker"
 
-TAG="$(grep "ENV DOCKER_BASE_TAG" -r ./docker/build_context/Dockerfile | awk -F= '{ print $2 }')"
+TAG="$(grep "ENV DOCKER_BASE_TAG" -r "./${DOCKERDIR}/build_context/Dockerfile" | awk -F= '{ print $2 }')"
 TAG="${TAG//\"}"
 
 CONTAINER="$(docker images | grep "/${IMAGE}" | grep "${TAG}" | awk '{print $3}')"
@@ -29,7 +29,7 @@ if [ -z "${CONTAINER}" ]; then
 fi
 
 ## docker container
-build ./docker "${DRYRUN}"
+build "./${DOCKERDIR}" "${DRYRUN}"
 
 echo "READY."
 
