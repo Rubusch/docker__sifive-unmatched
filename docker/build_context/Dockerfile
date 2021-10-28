@@ -18,7 +18,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 ################################################################################
 ## apt
-RUN apt-get install -y  \
+RUN sudo apt-get install -y  \
     git-core \
     dosfstools \
     minicom \
