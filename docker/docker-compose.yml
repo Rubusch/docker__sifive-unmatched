@@ -16,13 +16,15 @@ services:
         tty: true                 ## docker run -t
         #privileged: true
         environment:
-          - USER
+         - USER
         env_file:
-          - .env
+         - .env
         volumes:
-          - ~/.gitconfig:/home/$USER/.gitconfig
-          - ~/.ssh:/home/$USER/.ssh
-          - ./poky:/home/$USER/poky  ## folder does not need to be around
-          - type: bind
-            source: ./build_configs      ## folder must be around
-            target: /home/$USER/configs
+         ## folders not need to be around
+         - ~/.gitconfig:/home/$USER/.gitconfig
+         - ~/.ssh:/home/$USER/.ssh
+         - ./poky:/home/$USER/poky
+         ## folder must be around
+         - type: bind
+           source: ./build_configs
+           target: /home/$USER/configs
